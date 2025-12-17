@@ -51,7 +51,7 @@ header {
 
 
 .hero {
-  background-image: url('/assets/img/hero.JPG');
+  background-image: url('img/hero.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
