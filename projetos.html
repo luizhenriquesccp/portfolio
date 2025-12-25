@@ -153,6 +153,13 @@
                             ># PYTHON</small
                           >
                         </p>                        
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalProject2"
+                        >
+                          Galeria
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -332,6 +339,49 @@
        
       </div>
     </main>
+    <div class="modal fade" id="modalProject2" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-0">
+            <h5 class="modal-title">Galeria - Jogo da Velha</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <div id="carouselProj2" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="assets/img/project-imgs/code.png" class="d-block w-100" alt="jv-slide-1" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/img/project-imgs/code.png" class="d-block w-100" alt="jv-slide-2" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/img/project-imgs/code.png" class="d-block w-100" alt="jv-slide-3" />
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselProj2" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselProj2" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="modal-thumbs d-flex justify-content-center gap-2 p-2">
+              <img src="assets/img/project-imgs/code.png" class="thumb" style="cursor: pointer; max-width: 80px;" data-bs-target="#carouselProj2" data-bs-slide-to="0" alt="thumb1">
+              <img src="assets/img/project-imgs/code.png" class="thumb" style="cursor: pointer; max-width: 80px;" data-bs-target="#carouselProj2" data-bs-slide-to="1" alt="thumb2">
+              <img src="assets/img/project-imgs/code.png" class="thumb" style="cursor: pointer; max-width: 80px;" data-bs-target="#carouselProj2" data-bs-slide-to="2" alt="thumb3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="modal fade" id="modalProject1" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content bg-dark text-white">
