@@ -220,8 +220,8 @@ header {
   color: #000000;
 }
 .cards:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
+  transform: translateY(8px);
+  transition:  1s;
 }
 svg {
   color: #fe5e0d;
