@@ -92,11 +92,6 @@ header {
   padding: 0.75rem 1.5rem;
 }
 
-.hero-buttons a ::before{
-  
-
-}
-
 .carousel {
   margin-bottom: 4rem;
   margin-top: 20vh;
@@ -183,6 +178,12 @@ header {
   .title {
   text-align: center;
   margin: 40px 0 20px 0;
+  }
+  .project-thumb {
+    min-height: 80px;
+  }
+  .project-card .card-body p {
+    font-size: 0.9rem;
   }
 }
 .title {
@@ -300,24 +301,6 @@ footer i:hover{
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .project-thumb {
-    min-height: 80px;
-  }
-  .project-card .card-body p {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-thumb {
-    min-height: 60px;
-  }
-  .project-card .card-body {
-    padding: 0.6rem;
-  }
-}
-
 .project-card .row.g-0 {
   display: flex;
   flex-direction: column;
@@ -389,4 +372,62 @@ footer i:hover{
   margin-left: 0.35rem;
   font-size: 0.9em;
   vertical-align: middle;
+}
+
+.card-tech-stack {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #fe5e0d;
+}
+
+.card-tech-stack:hover {
+  transform: translateY(-5px);
+}
+
+.card-tech-stack .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-tech-stack .card-body {
+  padding: 1.25rem;
+}
+
+.card-tech-stack .card-title {
+  color: #0b1531;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-tech-stack .card-text {
+  color: #777;
+  font-size: 0.9rem;
+  margin: 0.8rem 0;
+}
+
+.card-tech-stack .tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.card-tech-stack .tech-badge {
+  background-color: #f0f0f0;
+  color: #0b1531;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  border: 1px solid #fe5e0d;
+}
+
+@media (max-width: 768px) {
+  .card-tech-stack .card-img-top {
+    height: 160px;
+  }
 }
