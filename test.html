@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== ESTILO 1: Card com efeito Hover Gradient ===== */
+      .card-style1 {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 15px rgba(254, 94, 13, 0.1);
+        position: relative;
+      }
+      
+      .card-style1::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(254, 94, 13, 0.2), transparent);
+        transition: left 0.5s ease;
+        z-index: 1;
+      }
+      
+      .card-style1:hover::before {
+        left: 100%;
+      }
+      
+      .card-style1:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(254, 94, 13, 0.3);
+      }
+      
+      .card-style1 .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 4px solid #fe5e0d;
+      }
+      
+      .card-style1 .card-body {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .card-style1 .card-title {
+        color: #0b1531;
+        font-weight: bold;
+      }
+      
+      .card-style1 .card-text {
+        color: #555;
+        font-size: 0.95rem;
+      }
+      
+      .card-style1 .badge {
+        background-color: #fe5e0d;
+        font-size: 0.75rem;
+        margin: 2px;
+      }
+
+
+      /* ===== ESTILO 2: Card com imagem ao lado (Horizontal) ===== */
+      .card-style2 {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #fe5e0d;
+      }
+      
+      .card-style2:hover {
+        transform: translateX(5px);
+        box-shadow: 0 10px 25px rgba(254, 94, 13, 0.2);
+      }
+      
+      .card-style2 .row {
+        display: flex;
+        align-items: stretch;
+      }
+      
+      .card-style2 .img-container {
+        overflow: hidden;
+        height: 220px;
+      }
+      
+      .card-style2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .card-style2:hover img {
+        transform: scale(1.1);
+      }
+      
+      .card-style2 .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      
+      .card-style2 .card-title {
+        color: #0b1531;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      
+      .card-style2 .card-text {
+        color: #666;
+        font-size: 0.9rem;
+        flex-grow: 1;
+      }
+
+
+      /* ===== ESTILO 3: Card Minimalista com Icon ===== */
+      .card-style3 {
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+      }
+      
+      .card-style3:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(254, 94, 13, 0.15);
+      }
+      
+      .card-style3 .card-img-top {
+        height: 150px;
+        object-fit: cover;
+      }
+      
+      .card-style3 .icon-circle {
+        width: 60px;
+        height: 60px;
+        background-color: #fe5e0d;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: -30px auto 10px;
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-size: 1.5rem;
+      }
+      
+      .card-style3 .card-title {
+        color: #0b1531;
+        font-weight: bold;
+        margin-top: 15px;
+      }
+      
+      .card-style3 .card-text {
+        color: #777;
+        font-size: 0.9rem;
+      }
+
+
+      /* ===== ESTILO 4: Card com tag/etiqueta ===== */
+      .card-style4 {
+        border: none;
+        border-radius: 12px;
+        overflow: visible;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+      
+      .card-style4:hover {
+        transform: rotate(-2deg) translateY(-8px);
+        box-shadow: 0 15px 30px rgba(254, 94, 13, 0.25);
+      }
+      
+      .card-style4 .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .card-style4 .badge-tag {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: #fe5e0d;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: bold;
+      }
+      
+      .card-style4 .card-body {
+        padding: 1.5rem;
+      }
+      
+      .card-style4 .card-title {
+        color: #0b1531;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      
+      .card-style4 .card-text {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+
+      /* ===== ESTILO 5: Card com barra de progresso/tags ===== */
+      .card-style5 {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #fe5e0d;
+      }
+      
+      .card-style5:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(254, 94, 13, 0.2);
+      }
+      
+      .card-style5 .card-img-top {
+        height: 180px;
+        object-fit: cover;
+      }
+      
+      .card-style5 .card-body {
+        padding: 1.25rem;
+      }
+      
+      .card-style5 .card-title {
+        color: #0b1531;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+      
+      .card-style5 .card-text {
+        color: #777;
+        font-size: 0.9rem;
+        margin: 0.8rem 0;
+      }
+      
+      .card-style5 .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.8rem;
+        margin-bottom: 1rem;
+      }
+      
+      .card-style5 .tech-badge {
+        background-color: #f0f0f0;
+        color: #0b1531;
+        padding: 3px 10px;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        border: 1px solid #fe5e0d;
+      }
+
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .card-style2 .row {
+          flex-direction: column;
+        }
+        
+        .card-style2 .img-container {
+          height: 200px;
+        }
+      }
+    </style>
+    <title>Estilos de Cards - Teste</title>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="mb-5 text-center fw-bold">Diferentes Estilos de Cards para Projetos</h1>
+
+        <!-- ESTILO 1: Gradient Hover -->
+        <div class="mb-5">
+            <h2 class="mb-4" style="color: #fe5e0d;">Estilo 1: Card com Efeito Gradient Hover</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style1">
+                        <img src="assets/img/project-imgs/lab.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Lab Agenda</h5>
+                            <p class="card-text">Um web app criado para evitar conflitos de agendamento nos laboratórios do campus.</p>
+                            <div class="mb-3">
+                                <span class="badge">Flask</span>
+                                <span class="badge">MySQL</span>
+                                <span class="badge">jQuery</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Ver Site</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style1">
+                        <img src="assets/img/project-imgs/respiraai.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Respira Aí</h5>
+                            <p class="card-text">Projeto escolar sobre Setembro Amarelo com foco em saúde mental.</p>
+                            <div class="mb-3">
+                                <span class="badge">HTML</span>
+                                <span class="badge">CSS</span>
+                                <span class="badge">Flask</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Ver Site</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style1">
+                        <img src="assets/img/project-imgs/cotacao.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Cotações de Moedas</h5>
+                            <p class="card-text">Consulta cotações de moedas em tempo real usando API.</p>
+                            <div class="mb-3">
+                                <span class="badge">API</span>
+                                <span class="badge">JavaScript</span>
+                                <span class="badge">CSS</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary">Ver Site</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESTILO 2: Horizontal com Image Zoom -->
+        <div class="mb-5">
+            <h2 class="mb-4" style="color: #fe5e0d;">Estilo 2: Card Horizontal com Zoom</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card card-style2">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <div class="img-container">
+                                    <img src="assets/img/project-imgs/filmes.png" alt="Projeto">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Catálogo de Filmes</h5>
+                                    <p class="card-text">Utilizando uma API de filmes, o site exibe uma lista completa de filmes populares com detalhes e busca.</p>
+                                    <div class="mb-2">
+                                        <small class="text-muted">API Omdb • JavaScript • HTML • CSS</small>
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-primary me-2">Ver Site</a>
+                                    <button class="btn btn-sm btn-outline-secondary">Galeria</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card card-style2">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <div class="img-container">
+                                    <img src="assets/img/project-imgs/esportes.png" alt="Projeto">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">Site Esportivo</h5>
+                                    <p class="card-text">Primeira página desenvolvida para estudar HTML e CSS, inspirada em portais como o GE.</p>
+                                    <div class="mb-2">
+                                        <small class="text-muted">HTML • CSS</small>
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-primary me-2">Ver Site</a>
+                                    <button class="btn btn-sm btn-outline-secondary">Galeria</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESTILO 3: Minimalista com Icon -->
+        <div class="mb-5">
+            <h2 class="mb-4" style="color: #fe5e0d;">Estilo 3: Card Minimalista com Icon</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card card-style3">
+                        <img src="assets/img/project-imgs/code.png" class="card-img-top" alt="Projeto">
+                        <div class="icon-circle">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="card-body pb-3">
+                            <h5 class="card-title">Jogo da Velha</h5>
+                            <p class="card-text">Jogo simples em Python para avaliação escolar.</p>
+                            <button class="btn btn-sm btn-primary w-100">Ver Mais</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-style3">
+                        <img src="assets/img/project-imgs/lab.png" class="card-img-top" alt="Projeto">
+                        <div class="icon-circle">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="card-body pb-3">
+                            <h5 class="card-title">Lab Agenda</h5>
+                            <p class="card-text">Web app para agendamento de laboratórios.</p>
+                            <button class="btn btn-sm btn-primary w-100">Ver Mais</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-style3">
+                        <img src="assets/img/project-imgs/cotacao.png" class="card-img-top" alt="Projeto">
+                        <div class="icon-circle">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="card-body pb-3">
+                            <h5 class="card-title">Cotações</h5>
+                            <p class="card-text">Consultador de moedas em tempo real.</p>
+                            <button class="btn btn-sm btn-primary w-100">Ver Mais</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-style3">
+                        <img src="assets/img/project-imgs/filmes.png" class="card-img-top" alt="Projeto">
+                        <div class="icon-circle">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="card-body pb-3">
+                            <h5 class="card-title">Catálogo</h5>
+                            <p class="card-text">Busca de filmes com integração de API.</p>
+                            <button class="btn btn-sm btn-primary w-100">Ver Mais</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESTILO 4: Card com Tag -->
+        <div class="mb-5">
+            <h2 class="mb-4" style="color: #fe5e0d;">Estilo 4: Card com Etiqueta</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style4">
+                        <span class="badge-tag">Em Desenvolvimento</span>
+                        <img src="assets/img/project-imgs/lab.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Lab Agenda</h5>
+                            <p class="card-text">Um web app criado para evitar conflitos de agendamento nos laboratórios do campus (IFRN-CM).</p>
+                            <small class="text-muted"># FLASK, JQUERY, HTML, CSS, JS e MYSQL</small><br>
+                            <button class="btn btn-sm btn-primary mt-3 me-2" disabled>Ver Site</button>
+                            <button class="btn btn-sm btn-outline-secondary mt-3">Galeria</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style4">
+                        <span class="badge-tag">Concluído</span>
+                        <img src="assets/img/project-imgs/respiraai.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Respira Aí</h5>
+                            <p class="card-text">Projeto escolar sobre Setembro Amarelo para apresentação avaliativa com foco em saúde mental.</p>
+                            <small class="text-muted"># HTML, CSS, JS e Flask</small><br>
+                            <a href="#" class="btn btn-sm btn-primary mt-3 me-2">Ver Site</a>
+                            <button class="btn btn-sm btn-outline-secondary mt-3">Galeria</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style4">
+                        <span class="badge-tag">Destaque</span>
+                        <img src="assets/img/project-imgs/filmes.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Catálogo de Filmes</h5>
+                            <p class="card-text">Site que exibe lista de filmes populares com detalhes, sinopse e busca por filmes específicos.</p>
+                            <small class="text-muted"># API Omdb, JS, HTML e CSS</small><br>
+                            <a href="#" class="btn btn-sm btn-primary mt-3 me-2">Ver Site</a>
+                            <button class="btn btn-sm btn-outline-secondary mt-3">Galeria</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESTILO 5: Card com Tech Stack -->
+        <div class="mb-5">
+            <h2 class="mb-4" style="color: #fe5e0d;">Estilo 5: Card com Tech Stack</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style5">
+                        <img src="assets/img/project-imgs/lab.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Lab Agenda</h5>
+                            <p class="card-text">Web app para evitar conflitos de agendamento nos laboratórios do campus.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Flask</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">jQuery</span>
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style5">
+                        <img src="assets/img/project-imgs/filmes.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Catálogo de Filmes</h5>
+                            <p class="card-text">Plataforma com lista de filmes populares com busca avançada e integração de API.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">API Omdb</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card card-style5">
+                        <img src="assets/img/project-imgs/esportes.png" class="card-img-top" alt="Projeto">
+                        <div class="card-body">
+                            <h5 class="card-title">Site Esportivo</h5>
+                            <p class="card-text">Portal de notícias esportivas desenvolvido para praticar HTML e CSS. Inspirado em portais como GE.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
