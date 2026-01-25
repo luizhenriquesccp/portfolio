@@ -22,30 +22,27 @@ header {
   border-radius: 50%;
   object-fit: cover;
 }
-.navbar-brand {
-  font-size: 1.5rem;
+.navbar-brand h1{
+  font-size: 20px;
   font-weight: bold;
   color: rgb(254, 94, 13) !important;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 70vw;
 }
-@media (max-width: 992px) {
-  .navbar-brand {
-    font-size: 1.1rem;
+@media (max-width: 780px) {
+  .navbar-brand h1{
+    font-size: 4vw;
     max-width: 60vw;
   }
 }
 @media (max-width: 576px) {
   .navbar-brand {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
     max-width: 50vw;
   }
-  .navbar > .container-fluid > .d-flex {
+  .navbar > .container-fluid {
     flex-wrap: wrap;
-    width: 100%;
+    justify-content: space-between;
   }
+  
 }
 .nav-link {
   color: rgb(255, 255, 255) !important;
